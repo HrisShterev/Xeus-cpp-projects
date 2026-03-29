@@ -25,3 +25,6 @@ struct
 blocksPerGrid
 png
 julia
+grayscale
+syncthreads
+cuComplex
