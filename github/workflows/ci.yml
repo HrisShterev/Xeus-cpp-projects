@@ -1,0 +1,30 @@
+name: Notebook CI
+
+on: [push, pull_request]
+
+jobs:
+  syntax-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install tools
+        run: pip install nbformat
+
+      - name: Validate notebook format
+        run: |
+          python -c "
+          import nbformat, glob, sys
+          errors = []
+          for f in glob.glob('**/*.ipynb', recursive=True):
+              try:
+                  nbformat.validate(nbformat.read(open(f), as_version=4))
+              except Exception as e:
+                  errors.append(f'{f}: {e}')
+          [print(e) for e in errors]
+          sys.exit(len(errors))
+          "
