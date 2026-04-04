@@ -28,3 +28,6 @@ julia
 grayscale
 syncthreads
 cuComplex
+openmp
+vectoradd
+CudaGrid
