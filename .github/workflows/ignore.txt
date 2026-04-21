@@ -43,3 +43,5 @@ th
 fibdata
 fs
 printf
+mutex
+bitwise
