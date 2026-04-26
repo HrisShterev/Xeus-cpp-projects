@@ -49,3 +49,7 @@ cpus
 underpopulation
 parallelize
 atomics
+Uncoalesced
+simt
+gpu`s
+memcpy
