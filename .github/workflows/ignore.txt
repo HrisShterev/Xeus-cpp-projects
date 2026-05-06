@@ -53,3 +53,7 @@ Uncoalesced
 simt
 GPU's
 memcpy
+ptx
+oy
+cdot
+config
